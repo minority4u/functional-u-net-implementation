@@ -194,7 +194,7 @@ def create_unet(config, metrics=None):
     bn_first = config.get('BN_FIRST', False)
     ndims = len(config.get('DIM', [224, 224]))
     depth = config.get('DEPTH', 4)
-    # define two layers for the middle part and the final  by  layer
+    # define two layers for the middle part and the final 1 by 1 layer
     Conv = getattr(kl, 'Conv{}D'.format(ndims))
     one_by_one = (1, 1, 1)[:ndims]
 
@@ -291,6 +291,9 @@ def create_unet_new(config, metrics=None):
 
 
 class Unet(tf.keras.Model):
+
+    # tf.keras subclassing version of the u-net
+    # DOES NOT WORK SO FAR !!!!
 
     def __init__(self, config, metrics=None):
         name = "Unet"
