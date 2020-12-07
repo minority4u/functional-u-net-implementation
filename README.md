@@ -1,4 +1,6 @@
-# Functional implementation with small improvements of Ronneberger U-Net Architecture for semantic segmentation
+# Functional implementation of the U-Net
+
+Ronnebergers U-Net architecture with small adjustments. All parameters are injectable. This implementation is based on tensorflow 2.x and reached state of the art Dice scores.
 
 The segmentation network has a U-Net architecture with four down-sampling and four respective up-samplingblocks (based on the original U-Net from Ronneberger et al) with some small adjustments:  batchnormalizationlayer after each non-linear activation, higher dropout rates, ELU activation instead of RELU, Dice loss function,data augmentation and no resampling to force the network to learn different physical representations to increasethe generalisation of the network.
 
